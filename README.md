@@ -1,4 +1,4 @@
-# resume_app
+# resume_django_app
 
 Hi there.
 This is the a Django app that helps you to digitize your resume.
