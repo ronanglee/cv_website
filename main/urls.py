@@ -10,5 +10,6 @@ urlpatterns = [
 	path('portfolio/', views.PortfolioView.as_view(), name="portfolios"),
 	path('portfolio/<slug:slug>', views.PortfolioDetailView.as_view(), name="portfolio"),
 	path('blog/', views.BlogView.as_view(), name="blogs"),
+	path('certificate/', views.CertificateView.as_view(), name="certificate"),
 	path('blog/<slug:slug>', views.BlogDetailView.as_view(), name="blog"),
 	]

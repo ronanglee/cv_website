@@ -150,8 +150,17 @@ class Certificate(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
+    image = models.ImageField(blank=True, null=True, upload_to="certificates")
     is_active = models.BooleanField(default=True)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.name)
+        super(Certificate, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return f"/certificate/{self.slug}"
 
