@@ -68,3 +68,7 @@ class BlogView(generic.ListView):
 class BlogDetailView(generic.DetailView):
 	model = Blog
 	template_name = "main/blog-detail.html"
+
+class CertificateView(generic.DetailView):
+	model = Certificate
+	template_name = "main/certificate-view.html"

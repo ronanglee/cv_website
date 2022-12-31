@@ -112,7 +112,7 @@ Start Content
   </div>
 </section>
 
-<!-- <section>
+<section>
   <div class="sectionSpaceSm lightBg">
     <div class="container">
       <div class="row pb-3">
@@ -127,10 +127,14 @@ Start Content
             {% for c in certificates %}
             {% if c.is_active %}
             <div class="swiper-slide">
-              <div class="cardStyle1">
-                <h4 class="mdTitle cs1Title">
-                  <a href="javascript:void(0)">{{c.title}}</a>
-                </h4>
+              <div class="cardStyle2">
+                <div class="image">
+                  <img src="{{c.image.url}}" alt="...">
+                </div>
+                <!-- <div class="popup-image">
+                  <span>&times;</span>
+                    <img src="{{c.image.url}}" alt="...">
+                </div> -->
                 <ul class="cardOptionCol">
                   <li>{{c.date.date}}</li>
                   <li>{{c.name|title}}</li>
@@ -138,18 +142,35 @@ Start Content
                 <p>{{c.description}}</p>
               </div>
             </div>
+              <!-- <div class="cardStyle2">
+                <div class="image">
+                  <img src="{{c.image.url}}" alt="...">
+                </div>
+                <div class="popup-image">
+                  <span>&times;</span>
+                    <img src="{{c.image.url}}" alt="...">
+                </div>
+              </div> -->
             {% endif %}
             {% endfor %}
-            
           </div>
-        </div>            
+        </div>
         <div class="cert-swiper-button-next swiper-button-next swiperBtnStyle"></div>
         <div class="cert-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
         <div class="swiper-pagination swiperPaginationStyle posInitial"></div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
+<script>
+document.querySelectorAll('{{c.image.url}}").forEach(image =>{
+  image.onclick = () =>{
+    document.querySelector('.popup-image').style.display = 'block';
+    document.queryselector('.popup-image img').src = image.getAttribute('src');
+  }
+});
+
+</script>
 
 <section>
   <div class="sectionSpaceSm lightBg">
